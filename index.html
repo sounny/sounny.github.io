@@ -34,6 +34,16 @@
   gtag('config', 'UA-12373725-5');
 </script>
 
+  <style>
+    .masthead p.text-white-75 {
+      font-size: 1.75rem; /* Adjusted base size for the paragraph */
+    }
+    .masthead .typed {
+      color: #ffffff;    /* Full white for the typed text */
+      font-weight: bold;  /* Make the typed part bold */
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 
 <body id="page-top">
@@ -76,7 +86,7 @@
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Educator of GIScience, Remote Sensing, Geomorphology, Design, and Code</p>
+          <p class="text-white-75 font-weight-light mb-5">I'm a <span class="typed"></span></p>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Welcome</a>
         </div>
       </div>
@@ -522,6 +532,39 @@
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (typeof Typed !== 'undefined') {
+        const typedElement = document.querySelector(".masthead .typed");
+        if (typedElement) {
+          new Typed(".masthead .typed", {
+            strings: [
+              "Geographer",
+              "Geomorphologist",
+              "Educator",
+              "Coder",
+              "Academic",
+              "Researcher",
+              "Remote Sensing Scientist",
+              "Environmental Modeler",
+              "Engineer",
+              "Information Technologist",
+              "GeoAI Scientist"
+            ],
+            typeSpeed: 80,
+            backSpeed: 50,
+            backDelay: 1500,
+            loop: true,
+            smartBackspace: true
+          });
+        } else {
+          console.error("Typed.js: Target element '.masthead .typed' not found.");
+        }
+      } else {
+        console.error("Typed.js library not loaded.");
+      }
+    });
+  </script>
 </body>
 
 </html>
