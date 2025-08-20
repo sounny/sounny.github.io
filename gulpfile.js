@@ -27,13 +27,18 @@ const banner = ['/*!\n',
 
 // BrowserSync
 function browserSync(done) {
-  browsersync.init({
-    server: {
-      baseDir: "./"
-    },
-    port: 3000
-  });
-  done();
+  try {
+    browsersync.init({
+      server: {
+        baseDir: "./"
+      },
+      port: 3000
+    });
+    done();
+  } catch (error) {
+    console.error('BrowserSync initialization failed:', error);
+    done(error);
+  }
 }
 
 // BrowserSync reload
@@ -119,9 +124,15 @@ function js() {
 
 // Watch files
 function watchFiles() {
-  gulp.watch("./scss/**/*", css);
-  gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js);
-  gulp.watch("./**/*.html", browserSyncReload);
+  gulp.watch("./scss/**/*", css).on('error', function(err) {
+    console.error('SCSS watch error:', err);
+  });
+  gulp.watch(["./js/**/*", "!./js/**/*.min.js"], js).on('error', function(err) {
+    console.error('JS watch error:', err);
+  });
+  gulp.watch("./**/*.html", browserSyncReload).on('error', function(err) {
+    console.error('HTML watch error:', err);
+  });
 }
 
 // Define complex tasks
