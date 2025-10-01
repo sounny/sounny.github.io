@@ -500,6 +500,14 @@ mark,
   height: auto;
 }
 
+.masthead p.text-white-75 {
+  font-size: 1.75rem; /* Adjusted base size for the paragraph */
+}
+.masthead .typed {
+  color: #ffffff; /* Full white for the typed text */
+  font-weight: bold; /* Make the typed part bold */
+}
+
 .figure {
   display: inline-block;
 }
