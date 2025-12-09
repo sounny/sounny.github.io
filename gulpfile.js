@@ -66,9 +66,9 @@ function modules() {
     .pipe(gulp.dest('./vendor/magnific-popup'));
   // jQuery
   var jquery = gulp.src([
-      './node_modules/jquery/dist/*',
-      '!./node_modules/jquery/dist/core.js'
-    ])
+    './node_modules/jquery/dist/*',
+    '!./node_modules/jquery/dist/core.js'
+  ])
     .pipe(gulp.dest('./vendor/jquery'));
   return merge(bootstrap, fontAwesomeCSS, fontAwesomeWebfonts, jquery, jqueryEasing, magnificPopup);
 }
@@ -84,7 +84,7 @@ function css() {
     }))
     .on("error", sass.logError)
     .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
+      overrideBrowserslist: ['last 2 versions'],
       cascade: false
     }))
     .pipe(header(banner, {
