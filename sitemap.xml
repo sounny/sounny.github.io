@@ -6,7 +6,12 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://sounny.github.io/</loc>
-  <lastmod>2025-12-08</lastmod>
+  <lastmod>2025-12-15</lastmod>
   <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://sounny.github.io/privacy.html</loc>
+  <lastmod>2025-12-15</lastmod>
+  <priority>0.80</priority>
 </url>
 </urlset>
