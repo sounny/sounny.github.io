@@ -58,17 +58,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
+
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Welcome</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#gis">GIS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#geoapps">GeoApps</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#tools">Tools</a>
+            <a class="nav-link js-scroll-trigger" href="#apps">Apps</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
@@ -130,25 +122,26 @@
             applications. The only thing limiting you is developing your
             skillsets. Look below and learn how to digitally explore the world.
           </p>
-          <a class="btn btn-light btn-xl js-scroll-trigger" href="#gis">Let's Explore</a>
+          <a class="btn btn-light btn-xl js-scroll-trigger" href="#apps">Let's Explore</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GIS Section -->
-  <section class="page-section bg-dark text-white" id="gis">
+  <!-- Apps Section -->
+  <section class="page-section bg-dark text-white" id="apps">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="mt-0 text-white">GIS Toolbox</h2>
+          <h2 class="mt-0 text-white">Web Apps</h2>
           <hr class="divider light my-4" />
           <p class="text-white mb-5">
-            Collection of WebGIS tools for geospatial analysis.
+            Collection of professional web applications and tools.
           </p>
         </div>
       </div>
       <div class="row">
+        <!-- GIS Tools -->
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-search-location fa-4x text-primary mb-4"></i>
@@ -195,6 +188,27 @@
         </div>
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
+            <i class="fas fa-random fa-4x text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Random Point Generator</h3>
+            <p class="text-white mb-0">
+              Generate random sample points within a chosen area.
+            </p>
+            <a href="https://sounny.github.io/randomgeopoints/" class="btn btn-primary mt-3">Launch</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-atlas fa-4x text-primary mb-4"></i>
+            <h3 class="h4 mb-2">PRJ: CRS Clearinghouse</h3>
+            <p class="text-white mb-0">
+              A central clearinghouse to explore map projections, retrieve WKT
+              definitions, and download .prj files for GIS software.
+            </p>
+            <a href="https://sounny.github.io/prj/" class="btn btn-primary mt-3">Launch</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
             <i class="fas fa-crosshairs fa-4x text-primary mb-4"></i>
             <h3 class="h4 mb-2">Georeferencer</h3>
             <p class="text-white mb-0">
@@ -214,32 +228,8 @@
             <a href="https://sounny.github.io/colorbrewer/" class="btn btn-primary mt-3">Launch</a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-random fa-4x text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Random Point Generator</h3>
-            <p class="text-white mb-0">
-              Generate random sample points within a chosen area.
-            </p>
-            <a href="https://sounny.github.io/randomgeopoints/" class="btn btn-primary mt-3">Launch</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- GeoApps Section -->
-  <section class="page-section bg-dark text-white" id="geoapps">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0 text-white">GeoApps</h2>
-          <hr class="divider light my-4" />
-          <p class="text-white mb-5">
-            These tools help you better understand Geography.
-          </p>
-        </div>
-      </div>
-      <div class="row">
+
+        <!-- GeoApps -->
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-sun fa-4x text-primary mb-4"></i>
@@ -285,22 +275,28 @@
             <a href="https://sounny.github.io/minmapart/" class="btn btn-primary mt-3">Launch</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- Tools Section -->
-  <section class="page-section bg-dark text-white" id="tools">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <h2 class="mt-0 text-white">Tools</h2>
-          <hr class="divider light my-4" />
-          <p class="text-white mb-5">
-            General-purpose tools for everyday tasks.
-          </p>
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-route fa-4x text-primary mb-4"></i>
+            <h3 class="h4 mb-2">Lat/Long Distance</h3>
+            <p class="text-white mb-0">
+              Measure great-circle distances between two coordinate pairs.
+            </p>
+            <a href="https://sounny.github.io/latlongdist/" class="btn btn-primary mt-3">Launch</a>
+          </div>
         </div>
-      </div>
-      <div class="row">
+        <div class="col-lg-4 col-md-6 text-center">
+          <div class="mt-5">
+            <i class="fas fa-location-arrow fa-4x text-primary mb-4"></i>
+            <h3 class="h4 mb-2">GPS</h3>
+            <p class="text-white mb-0">
+              Get live coordinates and quick location readouts right in your browser.
+            </p>
+            <a href="https://sounny.github.io/gps/" class="btn btn-primary mt-3">Launch</a>
+          </div>
+        </div>
+
+        <!-- Tools -->
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-qrcode fa-4x text-primary mb-4"></i>
@@ -341,27 +337,6 @@
             <a href="https://sounny.github.io/ohm/" class="btn btn-primary mt-3">Launch</a>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-route fa-4x text-primary mb-4"></i>
-            <h3 class="h4 mb-2">Lat/Long Distance</h3>
-            <p class="text-white mb-0">
-              Measure great-circle distances between two coordinate pairs.
-            </p>
-            <a href="https://sounny.github.io/latlongdist/" class="btn btn-primary mt-3">Launch</a>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-location-arrow fa-4x text-primary mb-4"></i>
-            <h3 class="h4 mb-2">GPS</h3>
-            <p class="text-white mb-0">
-              Get live coordinates and quick location readouts right in your browser.
-            </p>
-            <a href="https://sounny.github.io/gps/" class="btn btn-primary mt-3">Launch</a>
-          </div>
-        </div>
-
         <div class="col-lg-4 col-md-6 text-center">
           <div class="mt-5">
             <i class="fas fa-file-word fa-4x text-primary mb-4"></i>
@@ -636,6 +611,9 @@
         Browse tutorials and videos to expand your GIS skills.
       </p>
       <a class="btn btn-light btn-xl js-scroll-trigger" href="#lessons">Start Learning</a>
+      <a class="btn btn-light btn-xl" href="https://www.youtube.com/@sounny" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube mr-2"></i>YouTube Channel
+      </a>
     </div>
   </section>
 
@@ -643,6 +621,16 @@
   <section id="lessons" class="page-section">
     <div class="container">
       <div class="row justify-content-center">
+        <div class="card text-center m-3" style="width: 18rem">
+          <div class="card-body d-flex flex-column justify-content-center bg-primary text-white">
+            <i class="fab fa-youtube fa-5x mb-3"></i>
+            <h5 class="card-title text-white">More Videos</h5>
+            <p class="card-text text-white">
+              Subscribe to my YouTube channel for the latest GIS tutorials and lectures.
+            </p>
+            <a href="https://www.youtube.com/@sounny" class="btn btn-light mt-auto" target="_blank" rel="noopener noreferrer">Visit Channel</a>
+          </div>
+        </div>
         <div class="card text-center m-3" style="width: 18rem">
           <img class="card-img-top" src="img/cards/dark.jpg" alt="Dark terrain custom MapBox style preview" />
           <div class="card-body">
@@ -826,23 +814,6 @@
           </div>
         </div>
 
-        <div class="card text-center m-3" style="width: 18rem">
-          <img class="card-img-top" src="img/cards/asm.png" alt="Android Studio installation on Mac" />
-          <div class="card-body">
-            <h5 class="card-title">Android Studio on a Mac/PC</h5>
-            <p class="card-text">How to install Android Studio on a mac</p>
-            <a href="https://www.youtube.com/watch?v=wgrEEnGAm7s" class="btn btn-primary">YouTube Video</a>
-          </div>
-        </div>
-
-        <div class="card text-center m-3" style="width: 18rem">
-          <img class="card-img-top" src="img/cards/aspc.png" alt="Android Studio installation on PC" />
-          <div class="card-body">
-            <h5 class="card-title">Android Studio on a Mac/PC</h5>
-            <p class="card-text">How to install Android Studio on a PC</p>
-            <a href="https://www.youtube.com/watch?v=ZEj5Ar42xXs" class="btn btn-primary">YouTube Video</a>
-          </div>
-        </div>
 
         <div class="card text-center m-3" style="width: 18rem">
           <img class="card-img-top" src="img/cards/gps.png" alt="GPS technology overview" />
