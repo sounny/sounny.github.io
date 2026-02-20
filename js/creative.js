@@ -44,6 +44,6 @@
   // Collapse now if page is not at top
   navbarCollapse();
   // Collapse the navbar when page is scrolled
-  $window.on('scroll', navbarCollapse);
+  window.addEventListener('scroll', navbarCollapse, { passive: true });
 
 })(jQuery); // End of use strict
