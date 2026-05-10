@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sounny.github.io/sitemap.xml
+Sitemap: https://sounny.github.io/sounny_sitemap.xml
