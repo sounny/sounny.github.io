@@ -1,43 +1,19 @@
 {
-    "title": "Creative",
-    "name": "startbootstrap-creative",
-    "version": "5.1.8",
-    "scripts": {
-        "start": "gulp watch",
-        "build": "gulp build"
-    },
-    "description": "Dr. Moulay Anwar Sounny-Slitine - Personal Website & GeoAI Hub",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "gis",
-        "geoai",
-        "portfolio"
-    ],
-    "homepage": "https://sounny.github.io",
-    "license": "MIT",
-    "author": "Moulay Anwar Sounny-Slitine",
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.4",
-        "bootstrap": "^4.6.2",
-        "jquery": "^3.7.1",
-        "jquery.easing": "^1.4.1",
-        "magnific-popup": "^1.2.0"
-    },
-    "devDependencies": {
-        "browser-sync": "^3.0.3",
-        "del": "^6.1.1",
-        "gulp": "^5.0.0",
-        "gulp-autoprefixer": "^9.0.0",
-        "gulp-clean-css": "^4.3.0",
-        "gulp-header": "^2.0.9",
-        "gulp-plumber": "^1.2.1",
-        "gulp-rename": "^2.0.0",
-        "gulp-sass": "^5.1.0",
-        "gulp-uglify": "^3.0.2",
-        "merge-stream": "^2.0.0",
-        "sass": "^1.77.8"
-    }
+  "name": "sounny-personal-website",
+  "version": "6.0.0",
+  "description": "Dr. Moulay Anwar Sounny-Slitine - Personal Website & GeoAI Hub",
+  "keywords": [
+    "gis",
+    "remote-sensing",
+    "geoai",
+    "geography",
+    "spatial-analysis",
+    "portfolio"
+  ],
+  "homepage": "https://sounny.github.io",
+  "license": "MIT",
+  "author": "Dr. Moulay Anwar Sounny-Slitine",
+  "scripts": {
+    "start": "npx serve -l 3000 ."
+  }
 }
