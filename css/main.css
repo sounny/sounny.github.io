@@ -917,3 +917,8 @@ html {
 .footer {
   background: var(--text-main);
 }
+
+:is(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
