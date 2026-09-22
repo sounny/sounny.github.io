@@ -130,7 +130,7 @@ a {
 }
 
 a:hover {
-  color: var(--primary-light);
+  color: var(--primary-dark);
 }
 
 /* Buttons & Badges */
@@ -201,7 +201,7 @@ a:hover {
 
 .badge-accent {
   background: rgba(167, 139, 250, 0.12);
-  color: var(--accent);
+  color: #8a6125;
   border-color: rgba(167, 139, 250, 0.25);
 }
 
@@ -295,7 +295,8 @@ a:hover {
   text-decoration: none;
   transition: color var(--transition-fast);
   position: relative;
-  padding: 0.35rem 0;
+  padding: 0.5rem 0.5rem;
+  display: inline-block;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -575,7 +576,7 @@ a:hover {
   background: rgba(16, 23, 38, 0.6);
   border: 1px solid var(--border-subtle);
   color: var(--text-muted);
-  padding: 0.45rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius-full);
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -916,4 +917,18 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-dark);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

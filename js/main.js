@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.innerHTML = isOpen 
         ? `<i class="fas fa-times"></i>` 
         : `<i class="fas fa-bars"></i>`;
+
+      if (isOpen) {
+        const firstLink = navLinks.querySelector(".nav-link");
+        if (firstLink) firstLink.focus();
+      } else {
+        navToggle.focus();
+      }
     });
 
     // Close mobile nav when clicking a link
@@ -75,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         navLinks.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
         navToggle.innerHTML = `<i class="fas fa-bars"></i>`;
+        navToggle.focus();
       });
     });
 
