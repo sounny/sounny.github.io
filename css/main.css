@@ -617,7 +617,8 @@ a:hover {
   transition: all var(--transition-fast);
 }
 
-.search-input:focus {
+.search-input:focus,
+.search-input:focus-visible {
   border-color: var(--primary);
   box-shadow: 0 0 16px var(--primary-glow);
   background: rgba(20, 30, 48, 0.9);
@@ -902,7 +903,8 @@ html {
   color: #fffaf2;
 }
 
-.search-input:focus {
+.search-input:focus,
+.search-input:focus-visible {
   background: #ffffff;
 }
 
@@ -916,4 +918,38 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility focus styles */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus, .skip-link:focus-visible {
+  top: 0;
 }
