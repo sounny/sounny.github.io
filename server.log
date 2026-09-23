@@ -1,0 +1,100 @@
+
+> sounny-personal-website@6.0.0 start
+> npx serve -l 3000 .
+
+npm warn exec The following package was not found and will be installed: serve@14.2.6
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  9/23/2026 10:39:16 PM ::1 GET /
+ HTTP  9/23/2026 10:39:16 PM ::1 Returned 200 in 412 ms
+ HTTP  9/23/2026 10:39:16 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:39:16 PM ::1 Returned 200 in 5 ms
+ HTTP  9/23/2026 10:39:16 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:39:16 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:39:16 PM ::1 Returned 200 in 8 ms
+ HTTP  9/23/2026 10:39:16 PM ::1 Returned 200 in 12 ms
+ HTTP  9/23/2026 10:39:16 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:39:16 PM ::1 Returned 200 in 3 ms
+ HTTP  9/23/2026 10:40:41 PM ::1 GET /
+ HTTP  9/23/2026 10:40:41 PM ::1 Returned 200 in 3 ms
+ HTTP  9/23/2026 10:40:41 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:40:41 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:40:41 PM ::1 Returned 200 in 3 ms
+ HTTP  9/23/2026 10:40:41 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:40:41 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:40:41 PM ::1 Returned 200 in 10 ms
+ HTTP  9/23/2026 10:40:41 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:40:41 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:40:55 PM ::1 GET /
+ HTTP  9/23/2026 10:40:55 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:40:55 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:40:55 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:40:55 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:40:55 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:40:55 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:40:55 PM ::1 Returned 200 in 5 ms
+ HTTP  9/23/2026 10:40:55 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:40:55 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:41:25 PM ::1 GET /
+ HTTP  9/23/2026 10:41:25 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:41:25 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:41:25 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:41:25 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:41:25 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:41:25 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:41:25 PM ::1 Returned 200 in 4 ms
+ HTTP  9/23/2026 10:41:25 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:41:25 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:43:04 PM ::1 GET /
+ HTTP  9/23/2026 10:43:04 PM ::1 Returned 200 in 10 ms
+ HTTP  9/23/2026 10:43:32 PM ::1 GET /
+ HTTP  9/23/2026 10:43:32 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:43:32 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:43:32 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:43:32 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:43:32 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:43:32 PM ::1 Returned 200 in 3 ms
+ HTTP  9/23/2026 10:43:32 PM ::1 Returned 200 in 21 ms
+ HTTP  9/23/2026 10:43:32 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:43:32 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:43:44 PM ::1 GET /
+ HTTP  9/23/2026 10:43:44 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:43:44 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:43:44 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:43:44 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:43:44 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:43:44 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:43:44 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:43:44 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:43:44 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:44:57 PM ::1 GET /
+ HTTP  9/23/2026 10:44:57 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:44:57 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:44:57 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:44:57 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:44:57 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:44:57 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:44:57 PM ::1 Returned 200 in 3 ms
+ HTTP  9/23/2026 10:44:57 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:44:57 PM ::1 Returned 200 in 0 ms
+ HTTP  9/23/2026 10:45:13 PM ::1 GET /
+ HTTP  9/23/2026 10:45:13 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:45:13 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:45:13 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:45:13 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:45:13 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:45:13 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:45:13 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:45:13 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:45:13 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:45:40 PM ::1 GET /
+ HTTP  9/23/2026 10:45:40 PM ::1 Returned 200 in 1 ms
+ HTTP  9/23/2026 10:45:41 PM ::1 GET /css/main.css
+ HTTP  9/23/2026 10:45:41 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:45:41 PM ::1 GET /img/header.jpg
+ HTTP  9/23/2026 10:45:41 PM ::1 GET /js/main.js
+ HTTP  9/23/2026 10:45:41 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:45:41 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:45:41 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/23/2026 10:45:41 PM ::1 Returned 200 in 2 ms
+ HTTP  9/23/2026 10:45:58 PM ::1 GET /
+ HTTP  9/23/2026 10:45:58 PM ::1 Returned 200 in 2 ms

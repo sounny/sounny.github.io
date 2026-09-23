@@ -153,13 +153,13 @@ a:hover {
 
 .btn-primary {
   background: var(--primary);
-  color: #fffaf2 !important;
+  color: #04101e !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
 }
 
 .btn-primary:hover {
-  color: #fffaf2 !important;
+  color: #04101e !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
 }
@@ -330,7 +330,7 @@ a:hover {
 
 .nav-ext-btn:hover {
   background: var(--primary);
-  color: #04101e;
+  color: #fffaf2;
   border-color: var(--primary);
 }
 
@@ -535,7 +535,7 @@ a:hover {
 
 .glass-card:hover .card-icon {
   background: var(--primary);
-  color: #04101e;
+  color: #fffaf2;
   box-shadow: 0 0 16px var(--primary-glow);
 }
 
@@ -591,8 +591,9 @@ a:hover {
 }
 
 .filter-btn.active {
-  background: var(--primary);
   color: #04101e;
+  background: var(--primary);
+
   border-color: var(--primary);
   font-weight: 700;
   box-shadow: 0 0 14px var(--primary-glow);
@@ -733,7 +734,7 @@ a:hover {
 
 .contact-card:hover .contact-icon {
   background: var(--primary);
-  color: #04101e;
+  color: #fffaf2;
   box-shadow: 0 0 20px var(--primary-glow);
 }
 
@@ -899,7 +900,8 @@ html {
 }
 
 .filter-btn.active {
-  color: #fffaf2;
+  color: #04101e;
+
 }
 
 .search-input:focus {
@@ -916,4 +918,10 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
