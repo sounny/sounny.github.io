@@ -15,5 +15,17 @@
   "author": "Dr. Moulay Anwar Sounny-Slitine",
   "scripts": {
     "start": "npx serve -l 3000 ."
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sounny/sounny.github.io.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sounny/sounny.github.io/issues"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }

@@ -6,3 +6,5 @@ node_modules/
 
 # Ignore map source files in vendor
 vendor/**/*.map
+serve.log
+test-results
