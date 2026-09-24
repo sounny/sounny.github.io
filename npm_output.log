@@ -1,0 +1,9 @@
+
+> sounny-personal-website@6.0.0 start
+> npx serve -l 3000 .
+
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  9/24/2026 7:47:43 AM ::1 HEAD /
+ HTTP  9/24/2026 7:47:43 AM ::1 Returned 200 in 20 ms
+
+ INFO  Gracefully shutting down. Please wait...
