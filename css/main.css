@@ -95,6 +95,12 @@ body {
   border: 0;
 }
 
+/* Visible Focus Indicator */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
 /* Layout Container */
 .container {
   width: 100%;
