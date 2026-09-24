@@ -13,7 +13,7 @@
   --bg-glass-card: rgba(255, 250, 242, 0.92);
   --bg-glass-hover: #ffffff;
 
-  --primary: #d66543;
+  --primary: #ac3d1b;
   --primary-light: #ef8b63;
   --primary-dark: #a74432;
   --primary-glow: rgba(214, 101, 67, 0.22);
@@ -916,4 +916,11 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+
+/* Accessibility Focus Indicator */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
 }
