@@ -686,7 +686,7 @@ a:hover {
   flex-shrink: 0;
 }
 
-.resource-content h4 {
+.resource-content h3 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
