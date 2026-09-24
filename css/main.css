@@ -13,7 +13,7 @@
   --bg-glass-card: rgba(255, 250, 242, 0.92);
   --bg-glass-hover: #ffffff;
 
-  --primary: #d66543;
+  --primary: #a74432;
   --primary-light: #ef8b63;
   --primary-dark: #a74432;
   --primary-glow: rgba(214, 101, 67, 0.22);
@@ -916,4 +916,25 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility: Focus, Reduced Motion, Touch Targets */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch target size compliance */
+.btn, .filter-btn, .nav-link, .nav-ext-btn, a {
+  min-height: 44px;
+  min-width: 44px;
 }
