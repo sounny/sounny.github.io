@@ -13,10 +13,10 @@
   --bg-glass-card: rgba(255, 250, 242, 0.92);
   --bg-glass-hover: #ffffff;
 
-  --primary: #d66543;
+  --primary: #b65538;
   --primary-light: #ef8b63;
   --primary-dark: #a74432;
-  --primary-glow: rgba(214, 101, 67, 0.22);
+  --primary-glow: rgba(182, 85, 56, 0.22);
 
   --secondary: #315878;
   --secondary-glow: rgba(49, 88, 120, 0.2);
@@ -155,7 +155,7 @@ a:hover {
   background: var(--primary);
   color: #fffaf2 !important;
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
+  box-shadow: 0 4px 14px rgba(140, 58, 42, 0.24);
 }
 
 .btn-primary:hover {
@@ -916,4 +916,29 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility focus ring */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Minimum touch targets */
+.btn, .filter-btn, .nav-links a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
