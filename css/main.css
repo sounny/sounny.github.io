@@ -152,7 +152,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: #fffaf2 !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
@@ -591,7 +591,7 @@ a:hover {
 }
 
 .filter-btn.active {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: #04101e;
   border-color: var(--primary);
   font-weight: 700;
