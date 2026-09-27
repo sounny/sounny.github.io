@@ -67,6 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.innerHTML = isOpen 
         ? `<i class="fas fa-times"></i>` 
         : `<i class="fas fa-bars"></i>`;
+
+      if (isOpen) {
+        const firstLink = navLinks.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
     });
 
     // Close mobile nav when clicking a link
