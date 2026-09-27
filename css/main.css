@@ -153,13 +153,13 @@ a:hover {
 
 .btn-primary {
   background: var(--primary);
-  color: #fffaf2 !important;
+  color: #04101e !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
 }
 
 .btn-primary:hover {
-  color: #fffaf2 !important;
+  color: #04101e !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
 }
@@ -899,7 +899,7 @@ html {
 }
 
 .filter-btn.active {
-  color: #fffaf2;
+  color: #04101e;
 }
 
 .search-input:focus {
@@ -916,4 +916,19 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility Improvements */
+*:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
