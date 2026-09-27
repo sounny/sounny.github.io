@@ -152,7 +152,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: #fffaf2 !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
@@ -173,7 +173,7 @@ a:hover {
 
 .btn-outline:hover {
   background: rgba(56, 189, 248, 0.12);
-  border-color: var(--primary);
+  border-color: var(--primary-dark);
   color: #ffffff;
   transform: translateY(-2px);
 }
@@ -331,7 +331,7 @@ a:hover {
 .nav-ext-btn:hover {
   background: var(--primary);
   color: #04101e;
-  border-color: var(--primary);
+  border-color: var(--primary-dark);
 }
 
 /* Mobile Nav Toggle Button */
@@ -591,9 +591,9 @@ a:hover {
 }
 
 .filter-btn.active {
-  background: var(--primary);
-  color: #04101e;
-  border-color: var(--primary);
+  background: var(--primary-dark);
+  color: #fffaf2;
+  border-color: var(--primary-dark);
   font-weight: 700;
   box-shadow: 0 0 14px var(--primary-glow);
 }
@@ -618,7 +618,7 @@ a:hover {
 }
 
 .search-input:focus {
-  border-color: var(--primary);
+  border-color: var(--primary-dark);
   box-shadow: 0 0 16px var(--primary-glow);
   background: rgba(20, 30, 48, 0.9);
 }
@@ -916,4 +916,32 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Global Focus Visibility for Keyboard Navigation */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip Link styling for when it receives focus */
+.sr-only-focusable:focus, .sr-only-focusable:focus-within {
+  position: absolute;
+  width: auto;
+  height: auto;
+  margin: auto;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10000;
+  background: var(--bg-surface);
+  color: var(--primary-dark);
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius-sm);
+  font-weight: bold;
 }
