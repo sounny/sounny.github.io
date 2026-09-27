@@ -152,7 +152,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--primary-dark);
   color: #fffaf2 !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
@@ -591,8 +591,8 @@ a:hover {
 }
 
 .filter-btn.active {
-  background: var(--primary);
-  color: #04101e;
+  background: var(--primary-dark);
+  color: #fffaf2;
   border-color: var(--primary);
   font-weight: 700;
   box-shadow: 0 0 14px var(--primary-glow);
@@ -916,4 +916,21 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
 }
