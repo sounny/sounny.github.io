@@ -153,13 +153,13 @@ a:hover {
 
 .btn-primary {
   background: var(--primary);
-  color: #fffaf2 !important;
+  color: #04101e !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
 }
 
 .btn-primary:hover {
-  color: #fffaf2 !important;
+  color: #04101e !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
 }
@@ -686,7 +686,7 @@ a:hover {
   flex-shrink: 0;
 }
 
-.resource-content h4 {
+.resource-content h3 {
   font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.25rem;
@@ -899,7 +899,7 @@ html {
 }
 
 .filter-btn.active {
-  color: #fffaf2;
+  color: #04101e;
 }
 
 .search-input:focus {
@@ -916,4 +916,11 @@ html {
 
 .footer {
   background: var(--text-main);
+}
+
+
+/* Accessibility: Focus visible */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
