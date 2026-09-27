@@ -1,0 +1,35 @@
+
+> sounny-personal-website@6.0.0 start
+> npx serve -l 3000 .
+
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  9/27/2026 4:14:23 PM ::1 GET /
+ HTTP  9/27/2026 4:14:23 PM ::1 Returned 200 in 23 ms
+ HTTP  9/27/2026 4:14:23 PM ::1 GET /css/main.css
+ HTTP  9/27/2026 4:14:23 PM ::1 GET /img/header.jpg
+ HTTP  9/27/2026 4:14:23 PM ::1 GET /js/main.js
+ HTTP  9/27/2026 4:14:23 PM ::1 Returned 200 in 12 ms
+ HTTP  9/27/2026 4:14:23 PM ::1 Returned 200 in 13 ms
+ HTTP  9/27/2026 4:14:23 PM ::1 Returned 200 in 22 ms
+ HTTP  9/27/2026 4:14:23 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/27/2026 4:14:23 PM ::1 Returned 200 in 4 ms
+ HTTP  9/27/2026 4:14:51 PM ::1 GET /
+ HTTP  9/27/2026 4:14:51 PM ::1 Returned 200 in 2 ms
+ HTTP  9/27/2026 4:14:51 PM ::1 GET /css/main.css
+ HTTP  9/27/2026 4:14:51 PM ::1 Returned 200 in 2 ms
+ HTTP  9/27/2026 4:14:51 PM ::1 GET /img/header.jpg
+ HTTP  9/27/2026 4:14:51 PM ::1 GET /js/main.js
+ HTTP  9/27/2026 4:14:51 PM ::1 Returned 200 in 2 ms
+ HTTP  9/27/2026 4:14:51 PM ::1 Returned 200 in 2 ms
+ HTTP  9/27/2026 4:14:51 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/27/2026 4:14:51 PM ::1 Returned 200 in 1 ms
+ HTTP  9/27/2026 4:15:21 PM ::1 GET /
+ HTTP  9/27/2026 4:15:21 PM ::1 Returned 200 in 1 ms
+ HTTP  9/27/2026 4:15:21 PM ::1 GET /css/main.css
+ HTTP  9/27/2026 4:15:21 PM ::1 GET /img/header.jpg
+ HTTP  9/27/2026 4:15:21 PM ::1 Returned 200 in 1 ms
+ HTTP  9/27/2026 4:15:21 PM ::1 GET /js/main.js
+ HTTP  9/27/2026 4:15:21 PM ::1 Returned 200 in 2 ms
+ HTTP  9/27/2026 4:15:21 PM ::1 Returned 200 in 1 ms
+ HTTP  9/27/2026 4:15:21 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  9/27/2026 4:15:21 PM ::1 Returned 200 in 1 ms

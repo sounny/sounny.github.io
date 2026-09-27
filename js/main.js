@@ -155,6 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (noResults) {
       noResults.style.display = visibleCount === 0 ? "block" : "none";
     }
+
+    const announcer = document.getElementById("filterAnnouncer");
+    if (announcer) {
+      announcer.textContent = `Showing ${visibleCount} app${visibleCount === 1 ? '' : 's'}.`;
+    }
   }
 
   filterBtns.forEach(btn => {
