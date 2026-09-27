@@ -153,13 +153,13 @@ a:hover {
 
 .btn-primary {
   background: var(--primary);
-  color: #fffaf2 !important;
+  color: #080200 !important;
   font-weight: 700;
   box-shadow: 0 4px 14px rgba(166, 68, 50, 0.24);
 }
 
 .btn-primary:hover {
-  color: #fffaf2 !important;
+  color: #080200 !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);
 }
@@ -899,7 +899,7 @@ html {
 }
 
 .filter-btn.active {
-  color: #fffaf2;
+  color: #080200;
 }
 
 .search-input:focus {
