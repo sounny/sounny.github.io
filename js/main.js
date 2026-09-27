@@ -7,7 +7,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. Typing Effect for Hero Masthead ---
   const typedEl = document.getElementById("typedText");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (typedEl) {
+    if (prefersReducedMotion) {
+      typedEl.textContent = "I am a Geographer & GeoAI Scientist";
+      const cursor = document.querySelector(".typed-cursor");
+      if (cursor) cursor.style.display = "none";
+      return;
+    }
     const titles = [
       "I am a Geographer",
       "I am a GeoAI Scientist",
