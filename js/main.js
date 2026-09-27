@@ -23,7 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
       "I am a Mentor & Advisor"
     ];
 
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      typedEl.textContent = titles[0];
+      return;
+    }
+
     let titleIdx = 0;
+
     let charIdx = 0;
     let isDeleting = false;
     let typeDelay = 80;
