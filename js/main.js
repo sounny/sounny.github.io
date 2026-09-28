@@ -171,5 +171,13 @@ document.addEventListener("DOMContentLoaded", () => {
       currentSearch = e.target.value.toLowerCase().trim();
       filterApps();
     });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        currentSearch = "";
+        filterApps();
+      }
+    });
   }
 });
