@@ -86,6 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
         navToggle.innerHTML = `<i class="fas fa-bars"></i>`;
       }
     });
+
+    // Close on Escape and restore focus to toggle
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = `<i class="fas fa-bars"></i>`;
+        navToggle.focus();
+      }
+    });
   }
 
   // --- 3. Navbar Background on Scroll ---
