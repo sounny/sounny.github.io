@@ -419,7 +419,7 @@ a:hover {
 /* Quick Metrics / Stats Bar */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
   gap: 1.25rem;
   max-width: 860px;
   margin: 0 auto;
@@ -496,12 +496,12 @@ a:hover {
 /* Responsive Bento Grids */
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
   gap: 1.5rem;
 }
 
 .bento-grid-wide {
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
 }
 
 /* App & Feature Cards */
@@ -668,7 +668,7 @@ a:hover {
 /* Must-Haves / Resource Links Grid */
 .resource-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 1.25rem;
 }
 
@@ -701,7 +701,7 @@ a:hover {
 /* Contact Grid */
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 1.5rem;
   max-width: 980px;
   margin: 0 auto;
@@ -784,6 +784,7 @@ a:hover {
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
