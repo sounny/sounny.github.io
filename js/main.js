@@ -23,12 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       "I am a Mentor & Advisor"
     ];
 
-    let titleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let typeDelay = 80;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function typeLoop() {
+    if (prefersReducedMotion) {
+      typedEl.textContent = titles[0];
+    } else {
+      let titleIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      let typeDelay = 80;
+
+      function typeLoop() {
       const current = titles[titleIdx];
       if (isDeleting) {
         typedEl.textContent = current.substring(0, charIdx - 1);
@@ -50,9 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setTimeout(typeLoop, typeDelay);
-    }
+      }
 
-    typeLoop();
+      typeLoop();
+    }
   }
 
   // --- 2. Mobile Navigation Toggle ---
