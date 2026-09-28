@@ -112,8 +112,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const href = item.getAttribute("href").substring(1);
             if (href === id) {
               item.classList.add("active");
+              item.setAttribute("aria-current", "page");
             } else {
               item.classList.remove("active");
+              item.removeAttribute("aria-current");
             }
           });
         }
