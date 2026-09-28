@@ -14,6 +14,9 @@
   "license": "MIT",
   "author": "Dr. Moulay Anwar Sounny-Slitine",
   "scripts": {
-    "start": "npx serve -l 3000 ."
+    "start": "serve -l 3000 ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
   }
 }
