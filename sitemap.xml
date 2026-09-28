@@ -25,6 +25,11 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://sounny.github.io/map/index.html</loc>
+  <lastmod>2026-08-30</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://sounny.github.io/privacy.html</loc>
   <lastmod>2026-08-30</lastmod>
   <priority>0.50</priority>
