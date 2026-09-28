@@ -69,8 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
         : `<i class="fas fa-bars"></i>`;
     });
 
-    // Close mobile nav when clicking a link
-    navLinks.querySelectorAll(".nav-link").forEach(link => {
+    // Close mobile nav when clicking any link
+    nav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
@@ -104,18 +104,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const navItems = document.querySelectorAll(".nav-link[href^=\"#\"]");
 
   if ("IntersectionObserver" in window && sections.length && navItems.length) {
+    const visibleSections = new Set();
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const id = entry.target.getAttribute("id");
-          navItems.forEach(item => {
-            const href = item.getAttribute("href").substring(1);
-            if (href === id) {
-              item.classList.add("active");
-            } else {
-              item.classList.remove("active");
-            }
-          });
+          visibleSections.add(entry.target);
+        } else {
+          visibleSections.delete(entry.target);
+        }
+      });
+
+      // Determine active section based on DOM order of visible sections
+      let activeSectionId = null;
+      if (visibleSections.size > 0) {
+        // Find the visible section that appears first in the sections list
+        for (const section of sections) {
+          if (visibleSections.has(section)) {
+            activeSectionId = section.getAttribute("id");
+            break;
+          }
+        }
+      }
+
+      navItems.forEach(item => {
+        const href = item.getAttribute("href").substring(1);
+        if (href === activeSectionId) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
         }
       });
     }, {
