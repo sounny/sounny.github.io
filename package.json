@@ -14,7 +14,11 @@
   "license": "MIT",
   "author": "Dr. Moulay Anwar Sounny-Slitine",
   "scripts": {
+    "start": "npx serve -l 3000 .",
     "test": "node scripts/check-loading-lazy-present.js",
-    "start": "npx serve -l 3000 ."
+    "test:a11y": "pa11y http://localhost:3000"
+  },
+  "devDependencies": {
+    "pa11y": "^10.0.0"
   }
 }
