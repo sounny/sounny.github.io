@@ -36,7 +36,11 @@ for (const p of potentialPaths) {
     continue;
   }
 
-  const fullPath = path.join(rootDir, p);
+  const fullPath = path.resolve(rootDir, p);
+  if (!fullPath.startsWith(path.resolve(rootDir))) {
+    continue;
+  }
+
   if (!fs.existsSync(fullPath)) {
     console.warn(`WARNING: Path mentioned in AGENTS.md does not exist: ${p}`);
     missing++;
