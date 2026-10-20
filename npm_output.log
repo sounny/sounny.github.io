@@ -1,0 +1,5 @@
+
+> sounny-personal-website@6.0.0 start
+> npx serve -l 3000 .
+
+ INFO  Accepting connections at http://localhost:39437
