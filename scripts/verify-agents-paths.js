@@ -36,6 +36,11 @@ for (const p of potentialPaths) {
     continue;
   }
 
+  // Prevent directory traversal
+  if (p.includes('\0') || p.includes('..') || path.isAbsolute(p)) {
+    continue;
+  }
+
   const fullPath = path.resolve(rootDir, p);
   if (!fullPath.startsWith(path.resolve(rootDir))) {
     continue;
