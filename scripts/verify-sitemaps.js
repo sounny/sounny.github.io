@@ -41,7 +41,14 @@ sitemaps.forEach(sitemap => {
         relativePath = relativePath.substring(1);
       }
 
-      const filePath = path.join(process.cwd(), relativePath);
+      // Prevent path traversal
+      const basePath = process.cwd();
+      const filePath = path.resolve(basePath, relativePath);
+
+      if (!filePath.startsWith(basePath)) {
+         console.warn(`Warning: Path traversal attempt detected, skipping: ${relativePath}`);
+         continue;
+      }
 
       if (!fs.existsSync(filePath)) {
         missingFiles.push(`Mapped file does not exist: ${relativePath} (from ${url} in ${sitemap})`);
