@@ -1,0 +1,20 @@
+
+> sounny-personal-website@6.0.0 start
+> npx serve -l 3000 .
+
+npm warn exec The following package was not found and will be installed: serve@14.2.6
+ INFO  Accepting connections at http://localhost:3000
+ HTTP  10/20/2026 3:18:40 PM ::1 GET /
+ HTTP  10/20/2026 3:18:40 PM ::1 Returned 200 in 289 ms
+ HTTP  10/20/2026 3:18:41 PM ::1 GET /css/main.css
+ HTTP  10/20/2026 3:18:41 PM ::1 Returned 200 in 4 ms
+ HTTP  10/20/2026 3:18:41 PM ::1 GET /img/header.jpg
+ HTTP  10/20/2026 3:18:41 PM ::1 GET /js/main.js
+ HTTP  10/20/2026 3:18:41 PM ::1 Returned 200 in 6 ms
+ HTTP  10/20/2026 3:18:41 PM ::1 Returned 200 in 8 ms
+ HTTP  10/20/2026 3:18:41 PM ::1 GET /img/bg-masthead.jpg
+ HTTP  10/20/2026 3:18:41 PM ::1 Returned 200 in 6 ms
+ HTTP  10/20/2026 3:18:42 PM ::1 GET /favicon.png
+ HTTP  10/20/2026 3:18:42 PM ::1 Returned 200 in 2 ms
+ HTTP  10/20/2026 3:18:42 PM ::1 GET /favicon.png
+ HTTP  10/20/2026 3:18:42 PM ::1 Returned 304 in 1 ms
