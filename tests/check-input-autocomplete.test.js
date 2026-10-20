@@ -3,15 +3,15 @@ const path = require('node:path');
 const test = require('node:test');
 const assert = require('node:assert');
 
-function findHtmlFiles(dir) {
+function findFiles(dir) {
     const results = [];
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
         if (entry.name === 'node_modules' || entry.name === '.git') continue;
         const fullPath = path.join(dir, entry.name);
         if (entry.isDirectory()) {
-            results.push(...findHtmlFiles(fullPath));
-        } else if (fullPath.endsWith('.html')) {
+            results.push(...findFiles(fullPath));
+        } else if (/\.(html|css|js|svg)$/i.test(fullPath)) {
             results.push(fullPath);
         }
     }
@@ -20,13 +20,15 @@ function findHtmlFiles(dir) {
 
 const ALLOWLIST = [
     // format: "path/to/file.html: <input type='email' ...>"
+    "tests/check-input-autocomplete.test.js: <input type='email' ...>",
+    'tests/check-input-autocomplete.test.js: <input type="email" | type="tel">'
 ];
 
 test('Check <input> tags for email/tel types without autocomplete', (t) => {
-    const htmlFiles = findHtmlFiles('.');
+    const files = findFiles('.');
     const offenders = [];
 
-    for (const file of htmlFiles) {
+    for (const file of files) {
         const content = fs.readFileSync(file, 'utf8');
         const inputRegex = /<input\b[^>]*>/gi;
         let match;
