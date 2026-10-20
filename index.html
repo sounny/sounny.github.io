@@ -10,6 +10,7 @@
       gtag('config', 'G-8JGCM2H8Y4');
     </script>
     <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Dr. Moulay Anwar Sounny-Slitine - Personal academic portal, GeoAI research hub, web mapping apps, digital textbooks, and tutorials." />
     <meta name="author" content="Dr. Moulay Anwar Sounny-Slitine" />
@@ -21,6 +22,7 @@
     <meta property="og:title" content="Dr. Moulay Anwar Sounny-Slitine | GeoAI Hub & Geospatial Sciences" />
     <meta property="og:description" content="Digitally Exploring the World with GIS, Remote Sensing, GeoAI, and Environmental Modeling." />
     <meta property="og:image" content="https://sounny.github.io/img/header.jpg" />
+    <meta property="og:image:alt" content="Header image for Dr. Moulay Anwar Sounny-Slitine website" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -28,11 +30,13 @@
     <meta name="twitter:title" content="Dr. Moulay Anwar Sounny-Slitine | GeoAI Hub" />
     <meta name="twitter:description" content="Digitally Exploring the World with GIS, Remote Sensing, GeoAI, and Environmental Modeling." />
     <meta name="twitter:image" content="https://sounny.github.io/img/header.jpg" />
+    <meta name="twitter:image:alt" content="Header image for Dr. Moulay Anwar Sounny-Slitine website" />
 
     <title>Dr. Moulay Anwar Sounny-Slitine | Personal Website & GeoAI Hub</title>
 
     <meta name="theme-color" content="#0a0e17" />
-    <link rel="icon" href="https://sounny.github.io/favicon.png" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="shortcut icon" href="favicon.png" />
     <link rel="canonical" href="https://sounny.github.io/" />
 
     <!-- Schema.org Knowledge Graph -->
@@ -47,7 +51,7 @@
           "https://sounny.com",
           "https://orcid.org/0000-0001-6669-9246",
           "https://www.wikidata.org/wiki/Q140745446",
-          "https://scholar.google.com/citations?user=7xUuX4QAAAAJ",
+          "https://scholar.google.com/citations?user=47zZT9AAAAAJ",
           "https://www.researchgate.net/profile/Moulay_Anwar_Sounny-Slitine",
           "https://twitter.com/sounny",
           "https://www.linkedin.com/in/sounny/",
@@ -57,9 +61,11 @@
       }
     </script>
 
-    <!-- Typography (Montserrat & Space Grotesk) -->
+    <!-- Resource Hints (Google Fonts & Font Awesome) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome 6 Icons -->
@@ -70,11 +76,12 @@
   </head>
 
   <body id="page-top">
+    <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
     <!-- Sticky Glass Navigation -->
-    <nav class="navbar" id="mainNav">
+    <nav class="navbar" id="mainNav" aria-label="Main Navigation">
       <div class="container navbar-inner">
         <a class="nav-brand" href="#page-top">
-          <img src="img/header.jpg" alt="Dr. Sounny" class="nav-avatar" />
+          <img src="img/header.jpg" alt="Dr. Sounny" class="nav-avatar" fetchpriority="high" />
           <span>@sounny</span>
         </a>
 
@@ -83,6 +90,7 @@
         </button>
 
         <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#apps">Apps</a></li>
           <li><a class="nav-link" href="#projects">Projects</a></li>
           <li><a class="nav-link" href="#textbooks">Textbooks</a></li>
@@ -100,7 +108,7 @@
     </nav>
 
     <!-- Masthead Hero -->
-    <header class="masthead">
+    <header class="masthead" aria-label="Site Header">
       <div class="container">
         <div class="masthead-tag">
           <i class="fas fa-satellite"></i> GIS &bull; Remote Sensing &bull; GeoAI &bull; Earth Science
@@ -146,9 +154,9 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- About Section -->
-      <section class="section" id="about">
+      <section class="section" id="about" aria-label="About Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Overview</span>
@@ -161,7 +169,7 @@
       </section>
 
       <!-- Web Apps Showroom -->
-      <section class="section section-alt" id="apps">
+      <section class="section section-alt" id="apps" aria-label="Web Applications Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Interactive Portfolio</span>
@@ -173,17 +181,18 @@
 
           <!-- Category Filter Bar -->
           <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All Apps (30)</button>
-            <button class="filter-btn" data-filter="gis">GIS &amp; Mapping (9)</button>
-            <button class="filter-btn" data-filter="geoapps">GeoApps (8)</button>
-            <button class="filter-btn" data-filter="design">Design &amp; Media (3)</button>
-            <button class="filter-btn" data-filter="dev">Web Dev &amp; AI (3)</button>
-            <button class="filter-btn" data-filter="productivity">Productivity (7)</button>
+            <button class="filter-btn active" data-filter="all" aria-label="All Apps (30)">All Apps (30)</button>
+            <button class="filter-btn" data-filter="gis" aria-label="GIS &amp; Mapping (9)">GIS &amp; Mapping (9)</button>
+            <button class="filter-btn" data-filter="geoapps" aria-label="GeoApps (8)">GeoApps (8)</button>
+            <button class="filter-btn" data-filter="design" aria-label="Design &amp; Media (3)">Design &amp; Media (3)</button>
+            <button class="filter-btn" data-filter="dev" aria-label="Web Dev &amp; AI (3)">Web Dev &amp; AI (3)</button>
+            <button class="filter-btn" data-filter="productivity" aria-label="Productivity (7)">Productivity (7)</button>
           </div>
 
           <!-- Search Filter -->
           <div class="search-input-wrap">
             <i class="fas fa-search search-icon"></i>
+            <label for="appSearch" class="sr-only">Search Web Apps</label>
             <input type="text" class="search-input" id="appSearch" placeholder="Search apps by name or keywords..." aria-label="Search Web Apps" />
           </div>
 
@@ -720,7 +729,7 @@
       </section>
 
       <!-- Projects Section -->
-      <section class="section" id="projects">
+      <section class="section" id="projects" aria-label="Projects Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Academic Focus</span>
@@ -899,7 +908,7 @@
       </section>
 
       <!-- Textbooks & Workshops Section -->
-      <section class="section section-alt" id="textbooks">
+      <section class="section section-alt" id="textbooks" aria-label="Textbooks Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Curriculum</span>
@@ -1022,7 +1031,7 @@
       </section>
 
       <!-- Lessons / Tutorials Section -->
-      <section class="section" id="lessons">
+      <section class="section" id="lessons" aria-label="Lessons Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Education</span>
@@ -1440,7 +1449,7 @@
       </section>
 
       <!-- Kids & Community Section -->
-      <section class="section section-alt" id="kids">
+      <section class="section section-alt" id="kids" aria-label="Kids Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Community &amp; Youth</span>
@@ -1575,7 +1584,7 @@
       </section>
 
       <!-- Must Haves / Resources Section -->
-      <section class="section" id="services">
+      <section class="section" id="services" aria-label="Services Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Ecosystem</span>
@@ -1591,7 +1600,7 @@
             <i class="fas fa-globe-americas fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Esri</h4>
+            <h3 class="card-title">Esri</h3>
             <p>A suite of GIS software products, which operate on desktop,
                   server, and mobile platforms.</p>
           </div>
@@ -1601,7 +1610,7 @@
             <i class="fab fa-github fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>GitHub</h4>
+            <h3 class="card-title">GitHub</h3>
             <p>Hosting for software development version control.</p>
           </div>
         </a>
@@ -1610,7 +1619,7 @@
             <i class="fas fa-code fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>VS Code</h4>
+            <h3 class="card-title">VS Code</h3>
             <p>Modern, extensible source code editor for web, spatial, and Python development.</p>
           </div>
         </a>
@@ -1619,7 +1628,7 @@
             <i class="fas fa-leaf fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Leaflet</h4>
+            <h3 class="card-title">Leaflet</h3>
             <p>An open-source JavaScript library for mobile-friendly
                   interactive maps.</p>
           </div>
@@ -1629,8 +1638,8 @@
             <i class="fab fa-font-awesome-flag fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Font
-                  Awesome</h4>
+            <h3 class="card-title">Font
+                  Awesome</h3>
             <p>A toolkit for fonts and icons.</p>
           </div>
         </a>
@@ -1639,7 +1648,7 @@
             <i class="fab fa-bootstrap fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Bootstrap</h4>
+            <h3 class="card-title">Bootstrap</h3>
             <p>A free and open-source CSS framework directed at responsive,
                   mobile-first front-end web development.</p>
           </div>
@@ -1649,7 +1658,7 @@
             <i class="fab fa-adobe fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Adobe</h4>
+            <h3 class="card-title">Adobe</h3>
             <p>Multimedia and creativity software products.</p>
           </div>
         </a>
@@ -1658,7 +1667,7 @@
             <i class="fab fa-google fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Google Fonts</h4>
+            <h3 class="card-title">Google Fonts</h3>
             <p>Catalog of free and open source typography.</p>
           </div>
         </a>
@@ -1667,7 +1676,7 @@
             <i class="fab fa-jsfiddle fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>JSFiddle</h4>
+            <h3 class="card-title">JSFiddle</h3>
             <p>Online coding sandbox.</p>
           </div>
         </a>
@@ -1676,7 +1685,7 @@
             <i class="fab fa-python fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Python</h4>
+            <h3 class="card-title">Python</h3>
             <p>Easy to use programming language.</p>
           </div>
         </a>
@@ -1685,7 +1694,7 @@
             <i class="fab fa-node-js fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Node.js</h4>
+            <h3 class="card-title">Node.js</h3>
             <p>JavaScript run-time environment.</p>
           </div>
         </a>
@@ -1694,7 +1703,7 @@
             <i class="fab fa-html5 fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>HTML</h4>
+            <h3 class="card-title">HTML</h3>
             <p>The web&#x27;s markup language.</p>
           </div>
         </a>
@@ -1703,7 +1712,7 @@
             <i class="fas fa-map-marked-alt fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Mapbox</h4>
+            <h3 class="card-title">Mapbox</h3>
             <p>Tools for custom online maps and geospatial APIs.</p>
           </div>
         </a>
@@ -1712,8 +1721,8 @@
             <i class="fas fa-satellite fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Google Earth
-                  Engine</h4>
+            <h3 class="card-title">Google Earth
+                  Engine</h3>
             <p>Cloud-based geospatial processing platform.</p>
           </div>
         </a>
@@ -1722,7 +1731,7 @@
             <i class="fas fa-book fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>EEFA Book</h4>
+            <h3 class="card-title">EEFA Book</h3>
             <p>Open access guide to learning Google Earth Engine.</p>
           </div>
         </a>
@@ -1731,7 +1740,7 @@
             <i class="fas fa-map fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>QGIS</h4>
+            <h3 class="card-title">QGIS</h3>
             <p>Open source desktop GIS for geospatial analysis.</p>
           </div>
         </a>
@@ -1740,8 +1749,8 @@
             <i class="fas fa-search-location fa-fw mr-2"></i>
           </div>
           <div class="resource-content">
-            <h4>Leaflet
-                  GeoSearch</h4>
+            <h3 class="card-title">Leaflet
+                  GeoSearch</h3>
             <p>Plugin for searching addresses and places in Leaflet maps.</p>
           </div>
         </a>
@@ -1750,7 +1759,7 @@
       </section>
 
       <!-- Contact Section -->
-      <section class="section section-alt" id="contact">
+      <section class="section section-alt" id="contact" aria-label="Contact Section">
         <div class="container">
           <div class="section-header">
             <span class="section-tag">Connect</span>
@@ -1763,55 +1772,55 @@
           <div class="contact-grid">
             <a href="https://sounny.com" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fas fa-globe"></i></div>
-              <h4 class="contact-title">Homepage</h4>
+              <h3 class="contact-title">Homepage</h3>
               <span class="contact-handle">sounny.com</span>
             </a>
 
             <a href="mailto:sounny@gmail.com" class="glass-card contact-card">
               <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-              <h4 class="contact-title">Email</h4>
+              <h3 class="contact-title">Email</h3>
               <span class="contact-handle">sounny@gmail.com</span>
             </a>
 
             <a href="https://www.linkedin.com/in/sounny/" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-              <h4 class="contact-title">LinkedIn</h4>
+              <h3 class="contact-title">LinkedIn</h3>
               <span class="contact-handle">in/sounny</span>
             </a>
 
             <a href="https://github.com/sounny" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fab fa-github"></i></div>
-              <h4 class="contact-title">GitHub</h4>
+              <h3 class="contact-title">GitHub</h3>
               <span class="contact-handle">@sounny</span>
             </a>
 
             <a href="https://www.youtube.com/@sounny" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fab fa-youtube"></i></div>
-              <h4 class="contact-title">YouTube</h4>
+              <h3 class="contact-title">YouTube</h3>
               <span class="contact-handle">@sounny</span>
             </a>
 
             <a href="https://twitter.com/sounny" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fab fa-x-twitter"></i></div>
-              <h4 class="contact-title">X (Twitter)</h4>
+              <h3 class="contact-title">X (Twitter)</h3>
               <span class="contact-handle">@sounny</span>
             </a>
 
-            <a href="https://scholar.google.com/citations?user=7xUuX4QAAAAJ" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
+            <a href="https://scholar.google.com/citations?user=47zZT9AAAAAJ" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
-              <h4 class="contact-title">Google Scholar</h4>
+              <h3 class="contact-title">Google Scholar</h3>
               <span class="contact-handle">Citation Profile</span>
             </a>
 
             <a href="https://www.researchgate.net/profile/Moulay_Anwar_Sounny-Slitine" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fab fa-researchgate"></i></div>
-              <h4 class="contact-title">ResearchGate</h4>
+              <h3 class="contact-title">ResearchGate</h3>
               <span class="contact-handle">Moulay Anwar Sounny-Slitine</span>
             </a>
 
             <a href="https://utexas.academia.edu/sounny" class="glass-card contact-card" target="_blank" rel="noopener noreferrer">
               <div class="contact-icon"><i class="fas fa-university"></i></div>
-              <h4 class="contact-title">Academia.edu</h4>
+              <h3 class="contact-title">Academia.edu</h3>
               <span class="contact-handle">utexas.academia.edu/sounny</span>
             </a>
           </div>
@@ -1820,7 +1829,7 @@
     </main>
 
     <!-- Clean Footer -->
-    <footer class="footer">
+    <footer class="footer" aria-label="Site Footer">
       <div class="container">
         <p class="footer-quote">&ldquo;Digitally Exploring the World&rdquo;</p>
         <p class="mono footer-name">Dr. Moulay Anwar Sounny-Slitine</p>
