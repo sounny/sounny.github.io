@@ -10,31 +10,49 @@ try {
     process.exit(1);
 }
 
-const regex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-let match;
 let foundContext = false;
+let searchPos = 0;
 
-while ((match = regex.exec(html)) !== null) {
-    try {
-        const json = JSON.parse(match[1]);
-        const context = json['@context'];
+while (true) {
+    const startTag = html.indexOf('<script', searchPos);
+    if (startTag === -1) break;
 
-        if (context) {
-            let hasSchemaOrg = false;
-            if (typeof context === 'string') {
-                hasSchemaOrg = context.includes('schema.org');
-            } else if (Array.isArray(context)) {
-                hasSchemaOrg = context.some(item => typeof item === 'string' && item.includes('schema.org'));
-            }
+    const endTag = html.indexOf('</script>', startTag);
+    if (endTag === -1) break;
 
-            if (hasSchemaOrg) {
-                foundContext = true;
-                break;
+    const scriptContentWithTag = html.substring(startTag, endTag);
+    const closeBracket = scriptContentWithTag.indexOf('>');
+
+    if (closeBracket !== -1) {
+        const tagAttributes = scriptContentWithTag.substring(0, closeBracket);
+        // Case insensitive match for type
+        const typeMatch = tagAttributes.match(/type\s*=\s*["']application\/ld\+json["']/i);
+        if (typeMatch) {
+            const jsonText = scriptContentWithTag.substring(closeBracket + 1);
+            try {
+                const json = JSON.parse(jsonText);
+                const context = json['@context'];
+
+                if (context) {
+                    let hasSchemaOrg = false;
+                    if (typeof context === 'string') {
+                        hasSchemaOrg = context.includes('schema.org');
+                    } else if (Array.isArray(context)) {
+                        hasSchemaOrg = context.some(item => typeof item === 'string' && item.includes('schema.org'));
+                    }
+
+                    if (hasSchemaOrg) {
+                        foundContext = true;
+                        break;
+                    }
+                }
+            } catch (e) {
+                // Invalid JSON, continue
             }
         }
-    } catch (e) {
-        // Invalid JSON, continue
     }
+
+    searchPos = endTag + 9;
 }
 
 if (!foundContext) {
