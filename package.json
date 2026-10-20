@@ -15,6 +15,10 @@
   "author": "Dr. Moulay Anwar Sounny-Slitine",
   "scripts": {
     "start": "npx serve -l 3000 .",
-    "test": "node --test tests/*.js"
+    "test:a11y": "pa11y http://localhost:3000",
+    "test": "node --test tests/*.js scripts/*.js"
+  },
+  "devDependencies": {
+    "pa11y": "^10.0.0"
   }
 }
