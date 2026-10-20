@@ -3,6 +3,25 @@ const path = require('path');
 
 const filesToCheck = ['index.html', 'privacy.html'];
 
+function stripBlock(text, startStr, endStr) {
+  let result = '';
+  let currentIndex = 0;
+  while (true) {
+    const startIndex = text.indexOf(startStr, currentIndex);
+    if (startIndex === -1) {
+      result += text.slice(currentIndex);
+      break;
+    }
+    result += text.slice(currentIndex, startIndex);
+    const endIndex = text.indexOf(endStr, startIndex + startStr.length);
+    if (endIndex === -1) {
+      break;
+    }
+    currentIndex = endIndex + endStr.length;
+  }
+  return result;
+}
+
 function checkHeadings(filePath) {
   const fullPath = path.join(__dirname, '..', filePath);
   if (!fs.existsSync(fullPath)) {
@@ -11,20 +30,19 @@ function checkHeadings(filePath) {
   }
 
   const content = fs.readFileSync(fullPath, 'utf-8');
+  let lowerContent = content.toLowerCase();
 
-  // Strip HTML comments
-  let cleanContent = content.replace(/<!--[\s\S]*?-->/g, '');
-
-  // Strip script and style tags to avoid parsing headings inside them
-  cleanContent = cleanContent.replace(/<script[\s\S]*?<\/script>/gi, '');
-  cleanContent = cleanContent.replace(/<style[\s\S]*?<\/style>/gi, '');
+  // Strip HTML comments, scripts, and styles using string matching to avoid ReDoS
+  lowerContent = stripBlock(lowerContent, '<!--', '-->');
+  lowerContent = stripBlock(lowerContent, '<script', '</script>');
+  lowerContent = stripBlock(lowerContent, '<style', '</style>');
 
   // Find all heading tags
-  const headingRegex = /<h([1-6])\b[^>]*>/gi;
+  const headingRegex = /<h([1-6])\b[^>]*>/g;
   let match;
   let previousLevel = null;
 
-  while ((match = headingRegex.exec(cleanContent)) !== null) {
+  while ((match = headingRegex.exec(lowerContent)) !== null) {
     const currentLevel = parseInt(match[1], 10);
 
     if (previousLevel !== null) {
