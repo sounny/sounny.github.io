@@ -1,0 +1,23 @@
+name: Link Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Verify Google Scholar Link
+        run: |
+          if grep -q "7xUuX4QAAAAJ" index.html; then
+            echo "❌ Error: Found stale/broken Google Scholar link ID (7xUuX4QAAAAJ) in index.html"
+            /bin/false
+          else
+            echo "✅ Google Scholar link is valid."
+          fi
