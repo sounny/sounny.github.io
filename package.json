@@ -14,7 +14,6 @@
   "license": "MIT",
   "author": "Dr. Moulay Anwar Sounny-Slitine",
   "scripts": {
-    "start": "npx serve -l 3000 .",
-    "test": "node check-sitemaps.js"
+    "start": "npx serve -l 3000 ."
   }
 }
