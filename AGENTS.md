@@ -14,6 +14,7 @@ This repository contains the GitHub Pages site for Sounny. The site is a collect
 - Test links and interactive features after making changes.
 - Avoid unnecessary dependencies.
 - Do not expose API keys, passwords, tokens, or other secrets in client-side code.
+- All pages must include a skip-to-content link as the first focusable element. Check script: `grep -q '<a.*href="#.*class=".*sr-only-focusable.*".*>.*</a>' index.html`
 
 ## GitHub Pages
 
