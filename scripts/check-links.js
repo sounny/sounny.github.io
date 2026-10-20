@@ -25,18 +25,8 @@ for (const file of filesToCheck) {
   while ((match = regex.exec(content)) !== null) {
     const url = match[1];
 
-    // Filter for relative URLs
-    // Exclude: http://, https://, mailto:, tel:, # (internal anchors), data:, javascript:
-    if (
-      url.startsWith('http://') ||
-      url.startsWith('https://') ||
-      url.startsWith('mailto:') ||
-      url.startsWith('tel:') ||
-      url.startsWith('#') ||
-      url.startsWith('data:') ||
-      url.startsWith('javascript:') ||
-      url.startsWith('//')
-    ) {
+    // Filter for non-relative URLs
+    if (/^(?:https?|mailto|tel|data|javascript):/i.test(url) || url.startsWith('//') || url.startsWith('#')) {
       continue;
     }
 
@@ -50,28 +40,29 @@ for (const file of filesToCheck) {
         continue;
     }
 
-    cleanUrl = decodeURIComponent(cleanUrl);
+    try {
+      cleanUrl = decodeURIComponent(cleanUrl);
+    } catch (e) {
+      // ignore malformed URI
+    }
 
     // Resolve relative path to actual file path
     // Remove leading slash if it exists for relative resolution from project root
     let filepath = cleanUrl.startsWith('/') ? cleanUrl.substring(1) : cleanUrl;
 
-    // Remove leading ./ if it exists
-    if (filepath.startsWith('./')) {
-      filepath = filepath.substring(2);
+    // Prevent path traversal
+    const normalizedPath = path.normalize(filepath);
+    if (normalizedPath.startsWith('..') || path.isAbsolute(normalizedPath)) {
+      continue;
     }
 
     // We check if it exists case sensitively
     // We traverse the path parts
-    const parts = filepath.split('/');
+    const parts = normalizedPath.split('/').filter(p => p && p !== '.');
     let currentPath = process.cwd();
     let exists = true;
-    let localFilepath = '';
 
     for (const part of parts) {
-      if (!part) continue; // skip empty parts e.g. from double slashes or trailing slashes
-      localFilepath = path.join(localFilepath, part);
-
       try {
         const dirContents = fs.readdirSync(currentPath);
         if (!dirContents.includes(part)) {
