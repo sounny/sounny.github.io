@@ -23,12 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
       "I am a Mentor & Advisor"
     ];
 
-    let titleIdx = 0;
-    let charIdx = 0;
-    let isDeleting = false;
-    let typeDelay = 80;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function typeLoop() {
+    if (prefersReducedMotion) {
+      typedEl.textContent = titles[0];
+    } else {
+      let titleIdx = 0;
+      let charIdx = 0;
+      let isDeleting = false;
+      let typeDelay = 80;
+
+      function typeLoop() {
       const current = titles[titleIdx];
       if (isDeleting) {
         typedEl.textContent = current.substring(0, charIdx - 1);
@@ -50,9 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setTimeout(typeLoop, typeDelay);
-    }
+      }
 
-    typeLoop();
+      typeLoop();
+    }
   }
 
   // --- 2. Mobile Navigation Toggle ---
@@ -86,6 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
         navToggle.innerHTML = `<i class="fas fa-bars"></i>`;
       }
     });
+
+    // Close on Escape and restore focus to toggle
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navLinks.classList.contains("open")) {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = `<i class="fas fa-bars"></i>`;
+        navToggle.focus();
+      }
+    });
   }
 
   // --- 3. Navbar Background on Scroll ---
@@ -112,8 +128,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const href = item.getAttribute("href").substring(1);
             if (href === id) {
               item.classList.add("active");
+              item.setAttribute("aria-current", "page");
             } else {
               item.classList.remove("active");
+              item.removeAttribute("aria-current");
             }
           });
         }
@@ -170,6 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("input", (e) => {
       currentSearch = e.target.value.toLowerCase().trim();
       filterApps();
+    });
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        currentSearch = "";
+        filterApps();
+      }
     });
   }
 });
