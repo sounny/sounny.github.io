@@ -3,9 +3,9 @@ const assert = require('node:assert');
 const fs = require('fs');
 const path = require('path');
 
-const ALLOWLIST = [
+const ALLOWLIST = {
   // No current occurrences
-];
+};
 
 function tokenize(code) {
   const tokens = [];
@@ -48,14 +48,15 @@ function tokenize(code) {
   return tokens;
 }
 
-function hasDocumentCookie(code) {
+function countDocumentCookie(code) {
   const tokens = tokenize(code);
+  let count = 0;
   for (let i = 0; i < tokens.length - 2; i++) {
     if (tokens[i] === 'document' && tokens[i+1] === '.' && tokens[i+2] === 'cookie') {
-      return true;
+      count++;
     }
   }
-  return false;
+  return count;
 }
 
 function scanFiles(dir, fileList = []) {
@@ -63,30 +64,33 @@ function scanFiles(dir, fileList = []) {
   for (const file of files) {
     const filePath = path.join(dir, file);
     if (fs.statSync(filePath).isDirectory()) {
-      if (file !== 'node_modules' && file !== 'tests') {
+      if (file !== 'node_modules' && file !== 'tests' && file !== '.git') {
         scanFiles(filePath, fileList);
       }
-    } else if (filePath.endsWith('.js')) {
+    } else if (filePath.endsWith('.js') || filePath.endsWith('.html') || filePath.endsWith('.css')) {
       fileList.push(filePath);
     }
   }
   return fileList;
 }
 
-test('no document.cookie in .js files', (t) => {
-  const jsFiles = scanFiles('.');
+test('limit document.cookie usage', (t) => {
+  const projectRoot = path.join(__dirname, '..');
+  const targetFiles = scanFiles(projectRoot);
   const errors = [];
 
-  for (const file of jsFiles) {
+  for (const file of targetFiles) {
     const code = fs.readFileSync(file, 'utf8');
-    if (hasDocumentCookie(code)) {
-      if (!ALLOWLIST.includes(file)) {
-        errors.push(`File ${file} contains document.cookie access`);
-      }
+    const relativePath = path.relative(projectRoot, file);
+    const count = countDocumentCookie(code);
+    const allowed = ALLOWLIST[relativePath] || 0;
+
+    if (count > allowed) {
+      errors.push(`File ${relativePath} has ${count} document.cookie accesses, but only ${allowed} are allowed.`);
     }
   }
 
   if (errors.length > 0) {
-    assert.fail(`Found document.cookie usage outside allowlist:\n${errors.join('\n')}`);
+    assert.fail(`document.cookie usage exceeded allowlist:\n${errors.join('\n')}`);
   }
 });
