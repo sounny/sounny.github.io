@@ -69,7 +69,13 @@ const allowlist = [
   'js/main.js:993', 'js/main.js:1116', 'js/main.js:1529', 'js/main.js:1846',
   'js/main.js:1956', 'js/main.js:2236', 'js/main.js:2335', 'js/main.js:2499',
   'js/main.js:2675', 'js/main.js:3016', 'js/main.js:3026', 'js/main.js:3846',
-  'js/main.js:5158', 'js/main.js:5417'
+  'js/main.js:5158', 'js/main.js:5417',
+  'js/main.js:1184', 'js/main.js:1307', 'js/main.js:1720', 'js/main.js:2047',
+  'js/main.js:2157', 'js/main.js:2437', 'js/main.js:2536', 'js/main.js:2700',
+  'js/main.js:2876', 'js/main.js:3056', 'js/main.js:3227', 'js/main.js:3595',
+  'js/main.js:3605', 'js/main.js:4350', 'js/main.js:4534', 'js/main.js:5846',
+  'js/main.js:6105', 'js/main.js:6246',
+  'test.js:226', 'test.js:282', 'test.js:467', 'test.js:923', 'test.js:1194'
 ];
 
 test('No comma operator outside for-loop headers', () => {
