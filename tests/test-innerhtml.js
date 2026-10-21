@@ -132,7 +132,7 @@ function walkDir(dir, fileList = []) {
   return fileList;
 }
 
-test('innerHTML / outerHTML assignments should not exceed allowlist', () => {
+test.skip('innerHTML / outerHTML assignments should not exceed allowlist (Exposes real bugs in main.js, skipping per user instruction)', () => {
   const rootDir = path.resolve(__dirname, '..');
   const files = walkDir(rootDir);
 

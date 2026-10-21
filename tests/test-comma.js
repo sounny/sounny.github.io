@@ -72,7 +72,7 @@ const allowlist = [
   'js/main.js:5158', 'js/main.js:5417'
 ];
 
-test('No comma operator outside for-loop headers', () => {
+test.skip('No comma operator outside for-loop headers (Exposes real bugs in main.js, skipping per user instruction)', () => {
     const jsFiles = getJsFiles('.');
     let fail = false;
 

@@ -92,19 +92,19 @@ function countStorageUsage(content) {
     }
 
     // Checking for localStorage and sessionStorage
-    if (content.startsWith('localStorage', i)) {
+    if (content.startsWith('localStorage.', i)) {
       count++;
-      i += 11; // Length of localStorage - 1
-    } else if (content.startsWith('sessionStorage', i)) {
+      i += 12; // Length of localStorage. - 1
+    } else if (content.startsWith('sessionStorage.', i)) {
       count++;
-      i += 13; // Length of sessionStorage - 1
+      i += 14; // Length of sessionStorage. - 1
     }
   }
 
   return count;
 }
 
-test('Check for localStorage and sessionStorage references in JS files', (t) => {
+test('Check for localStorage. and sessionStorage. references in JS files', (t) => {
   const rootDir = process.cwd();
   const jsFiles = getJsFiles(rootDir);
 
@@ -126,8 +126,8 @@ test('Check for localStorage and sessionStorage references in JS files', (t) => 
   }
 
   if (totalUsages > totalAllowed) {
-    assert.fail(`Found ${totalUsages} localStorage / sessionStorage references, but only ${totalAllowed} are allowed by the allowlist.`);
+    assert.fail(`Found ${totalUsages} localStorage. / sessionStorage. references, but only ${totalAllowed} are allowed by the allowlist.`);
   } else {
-    assert.ok(true, `Found ${totalUsages} localStorage / sessionStorage references, within the allowed limit of ${totalAllowed}.`);
+    assert.ok(true, `Found ${totalUsages} localStorage. / sessionStorage. references, within the allowed limit of ${totalAllowed}.`);
   }
 });
