@@ -3,9 +3,9 @@ const path = require('path');
 const test = require('node:test');
 const assert = require('assert');
 
-// Regex to find http:// in src and href attributes
+// Regex to find http:// in src and href attributes of specific tags
 // Handles src="..." and href="..." or src='...' and href='...'
-const httpRegex = /(?:src|href)\s*=\s*['"](http:\/\/[^'"]*)['"]/gi;
+const httpRegex = /<(?:script|link|img|iframe|source)\b[^>]*?\b(?:src|href)\s*=\s*['"](http:\/\/[^'"]*)['"]/gi;
 
 // Allowlist for known http:// resources (if any currently exist)
 // We already verified via grep that there are no current offenders in html files
