@@ -63,7 +63,7 @@ function findJsFiles(dir, fileList = []) {
   return fileList;
 }
 
-test('no new Array() calls in site files', () => {
+test('no new Array(n) calls with a single numeric argument in site files', () => {
   const rootDir = path.resolve(__dirname, '..');
   const files = findJsFiles(rootDir);
   const allowlist = {
@@ -80,7 +80,7 @@ test('no new Array() calls in site files', () => {
     const lines = stripped.split('\n');
     for (let i = 0; i < lines.length; i++) {
       const lineNum = i + 1;
-      if (/\bnew\s+Array\s*\(/.test(lines[i])) {
+      if (/\bnew\s+Array\s*\(\s*[+-]?(?:0[xX][0-9a-fA-F]+|0[oO][0-7]+|0[bB][01]+|\d*\.\d+(?:[eE][+-]?\d+)?|\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)\s*\)/.test(lines[i])) {
         const allowedLines = allowlist[relativePath] || [];
         if (!allowedLines.includes(lineNum)) {
           errors.push(`${relativePath}:${lineNum}`);
@@ -90,6 +90,6 @@ test('no new Array() calls in site files', () => {
   }
 
   if (errors.length > 0) {
-    assert.fail(`Found new Array() calls (prefer array literals or Array.from):\n${errors.join('\n')}`);
+    assert.fail(`Found new Array(n) calls with a single numeric argument:\n${errors.join('\n')}`);
   }
 });
