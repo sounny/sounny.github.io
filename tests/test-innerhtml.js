@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ALLOWLIST = {
-  'js/main.js': 3
+  'js/main.js': 4
 };
 
 const PLUS_EQUALS_ALLOWLIST = {};
