@@ -52,8 +52,26 @@ test('Check for <meta charset="utf-8"> in <head> of HTML files', (t) => {
 
         if (!hasMetaCharset) {
             offenders.push(normalizedFile);
+            continue;
+        }
+
+        const noComments = headContent.replace(/<!--[\s\S]*?-->/g, '');
+        const tagMatches = [...noComments.matchAll(/<([a-z0-9\-]+)[^>]*>/gi)];
+
+        let metaCharsetIndex = -1;
+        for (let i = 0; i < tagMatches.length; i++) {
+            const tagName = tagMatches[i][1].toLowerCase();
+            const tagContent = tagMatches[i][0];
+            if (tagName === 'meta' && /charset=/i.test(tagContent)) {
+                metaCharsetIndex = i;
+                break;
+            }
+        }
+
+        if (metaCharsetIndex >= 5) {
+            offenders.push(normalizedFile);
         }
     }
 
-    assert.deepStrictEqual(offenders, [], 'Found HTML files missing <meta charset="utf-8"> in <head>. Please add the tag or add to ALLOWLIST in tests/check-meta-charset.test.js');
+    assert.deepStrictEqual(offenders, [], 'Found HTML files missing <meta charset="utf-8"> in <head> or it is not within the first five elements. Please add the tag or add to ALLOWLIST in tests/check-meta-charset.test.js');
 });
