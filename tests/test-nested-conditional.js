@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ALLOWLIST = {
-  'scripts/check-form-labels.js': 1
+  'tests/check-form-labels.test.js': 1
 };
 
 function tokenize(code) {

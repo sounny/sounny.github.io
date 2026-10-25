@@ -3,11 +3,7 @@ const assert = require('node:assert');
 const fs = require('fs');
 const path = require('path');
 
-const allowlist = [];
-
-function isAllowlisted(file, elHtml) {
-  return allowlist.some(item => file.endsWith(item.file) && elHtml.includes(item.partialHtml));
-}
+const MAX_OFFENDERS = 0;
 
 function findHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -124,13 +120,11 @@ test('Form inputs must have labels or aria labels', () => {
                 const hasExplicitLabel = hasId && labelsFor.has(attrs['id']);
 
                 if (!hasAriaLabel && !hasAriaLabelledBy && !hasEnclosingLabel && !hasExplicitLabel) {
-                    if (!isAllowlisted(file, tag.content)) {
-                        errors.push(`File: ${file} | Element: ${tag.content}`);
-                    }
+                    errors.push(`File: ${file} | Element: ${tag.content}`);
                 }
             }
         }
     }
 
-    assert.strictEqual(errors.length, 0, `Found form elements without labels:\n${errors.join('\n')}`);
+    assert.ok(errors.length <= MAX_OFFENDERS, `Found form elements without labels (max allowed ${MAX_OFFENDERS}, found ${errors.length}):\n${errors.join('\n')}`);
 });
