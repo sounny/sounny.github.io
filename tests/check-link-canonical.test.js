@@ -53,3 +53,31 @@ test('Count of HTML files without <link rel="canonical"> should not grow beyond 
         `Found ${missingCount} HTML files without <link rel="canonical">, which exceeds the baseline of ${BASELINE_COUNT}. Offenders: ${offenders.join(', ')}`
     );
 });
+
+test('No HTML file should have more than one <link rel="canonical"> tag', () => {
+    const htmlFiles = findHtmlFiles('.');
+    const offenders = [];
+
+    for (const file of htmlFiles) {
+        const content = fs.readFileSync(file, 'utf8');
+        let canonicalCount = 0;
+
+        const linkRegex = /<link\b[^>]*>/gi;
+        let match;
+        while ((match = linkRegex.exec(content)) !== null) {
+            const tag = match[0];
+            if (/\brel\s*=\s*(["']?)canonical\1/i.test(tag)) {
+                canonicalCount++;
+            }
+        }
+
+        if (canonicalCount > 1) {
+            offenders.push(`${file} (${canonicalCount} tags)`);
+        }
+    }
+
+    assert.ok(
+        offenders.length === 0,
+        `Found HTML files with more than one <link rel="canonical">: ${offenders.join(', ')}`
+    );
+});
