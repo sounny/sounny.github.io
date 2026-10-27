@@ -55,3 +55,52 @@ test('Check that HTML files have a <meta name="description"> tag', () => {
         'Found HTML files without <meta name="description">. Please add it or add to ALLOWLIST in tests/check-meta-description.test.js'
     );
 });
+
+test('Check that HTML files do not share identical <meta name="description"> tags', () => {
+    const htmlFiles = findHtmlFiles('.');
+    const descriptions = new Map();
+
+    for (const file of htmlFiles) {
+        if (ALLOWLIST.includes(file)) continue;
+
+        const content = fs.readFileSync(file, 'utf8');
+        const metaRegex = /<meta\b[^>]*>/gi;
+        let match;
+        while ((match = metaRegex.exec(content)) !== null) {
+            const tag = match[0];
+            if (/\bname\s*=\s*(["']?)description\1/i.test(tag)) {
+                const contentMatch = tag.match(/\bcontent\s*=\s*(["'])(.*?)\1/i);
+                if (contentMatch) {
+                    const desc = contentMatch[2].trim();
+                    if (desc) {
+                        if (!descriptions.has(desc)) {
+                            descriptions.set(desc, []);
+                        }
+                        descriptions.get(desc).push(file);
+                    }
+                }
+            }
+        }
+    }
+
+    let identicalCount = 0;
+    const duplicatedDescriptions = {};
+    for (const [desc, files] of descriptions.entries()) {
+        if (files.length > 1) {
+            identicalCount += files.length;
+            duplicatedDescriptions[desc] = files;
+        }
+    }
+
+    const MAX_IDENTICAL = 0; // Baseline
+
+    if (identicalCount > MAX_IDENTICAL) {
+        console.error('Duplicated descriptions found:');
+        console.error(JSON.stringify(duplicatedDescriptions, null, 2));
+    }
+
+    assert.ok(
+        identicalCount <= MAX_IDENTICAL,
+        `Number of pages sharing identical descriptions (${identicalCount}) exceeds the baseline limit of ${MAX_IDENTICAL}.`
+    );
+});
