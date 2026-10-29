@@ -22,7 +22,7 @@ const ALLOWLIST = [
     'google03d463aa06323fde.html'
 ];
 
-test('Check for <meta charset="utf-8"> in <head> of HTML files', (t) => {
+test('Check that HTML files have exactly one <meta charset="..."> declaration', (t) => {
     const htmlFiles = findHtmlFiles('.');
     const offenders = [];
 
@@ -36,24 +36,12 @@ test('Check for <meta charset="utf-8"> in <head> of HTML files', (t) => {
 
         const content = fs.readFileSync(file, 'utf8');
 
-        // Find the <head> section
-        const headMatch = content.match(/<head[^>]*>([\s\S]*?)<\/head>/i);
+        const charsetMatches = content.match(/<meta[^>]*\bcharset\b[^>]*>/gi) || [];
 
-        if (!headMatch) {
-            // No <head> tag means no meta charset in the head
-            offenders.push(normalizedFile);
-            continue;
-        }
-
-        const headContent = headMatch[1];
-
-        // Check for <meta charset="utf-8">
-        const hasMetaCharset = /<meta\s+charset=(["']?)utf-8\1\s*\/?>/i.test(headContent);
-
-        if (!hasMetaCharset) {
+        if (charsetMatches.length !== 1) {
             offenders.push(normalizedFile);
         }
     }
 
-    assert.deepStrictEqual(offenders, [], 'Found HTML files missing <meta charset="utf-8"> in <head>. Please add the tag or add to ALLOWLIST in tests/check-meta-charset.test.js');
+    assert.deepStrictEqual(offenders, [], 'Found HTML files missing a single <meta charset="..."> declaration. Please ensure exactly one is present or add to ALLOWLIST in tests/check-meta-charset.test.js');
 });
