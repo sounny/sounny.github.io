@@ -79,7 +79,7 @@ function extractAttributes(tagString) {
     return attrs;
 }
 
-test('Form inputs must have labels or aria labels', () => {
+test('input, select, and textarea elements must have an associated label, aria-label, or aria-labelledby', () => {
     const htmlFiles = findHtmlFiles('.');
     const errors = [];
 
