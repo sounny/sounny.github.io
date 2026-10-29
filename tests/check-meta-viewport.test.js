@@ -29,6 +29,7 @@ test('Check that HTML files have a <meta name="viewport"> tag', () => {
     for (const file of htmlFiles) {
         const content = fs.readFileSync(file, 'utf8');
         let hasViewport = false;
+        let hasViewportScalingDisabled = false;
 
         // Find all <meta> tags
         const metaRegex = /<meta\b[^>]*>/gi;
@@ -38,11 +39,14 @@ test('Check that HTML files have a <meta name="viewport"> tag', () => {
             // Check if the <meta> tag has name="viewport" (case-insensitive)
             if (/\bname\s*=\s*(["']?)viewport\1/i.test(tag)) {
                 hasViewport = true;
-                break;
+                // Check if user scaling is disabled
+                if (/user-scalable\s*=\s*(no|0)(?![.\d])/i.test(tag) || /maximum-scale\s*=\s*1(\.0+)?(?![.\d])/i.test(tag)) {
+                    hasViewportScalingDisabled = true;
+                }
             }
         }
 
-        if (!hasViewport) {
+        if (!hasViewport || hasViewportScalingDisabled) {
             if (!ALLOWLIST.includes(file)) {
                 offenders.push(file);
             }
@@ -52,6 +56,6 @@ test('Check that HTML files have a <meta name="viewport"> tag', () => {
     assert.deepStrictEqual(
         offenders,
         [],
-        'Found HTML files without <meta name="viewport">. Please add it or add to ALLOWLIST in tests/check-meta-viewport.test.js'
+        'Found HTML files without <meta name="viewport"> or with user scaling disabled. Please fix or add to ALLOWLIST in tests/check-meta-viewport.test.js'
     );
 });
