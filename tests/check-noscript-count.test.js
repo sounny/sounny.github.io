@@ -19,10 +19,12 @@ function findHtmlFiles(dir) {
 }
 
 const MAX_NOSCRIPT_COUNT = 0;
+const MAX_EMPTY_NOSCRIPT_COUNT = 0;
 
 test('Check that noscript count does not grow', () => {
     const htmlFiles = findHtmlFiles('.');
     let noscriptCount = 0;
+    let emptyNoscriptCount = 0;
 
     for (const file of htmlFiles) {
         const content = fs.readFileSync(file, 'utf8');
@@ -30,10 +32,20 @@ test('Check that noscript count does not grow', () => {
         if (matches) {
             noscriptCount += matches.length;
         }
+
+        const emptyMatches = content.match(/<noscript[^>]*>\s*<\/noscript>/gi);
+        if (emptyMatches) {
+            emptyNoscriptCount += emptyMatches.length;
+        }
     }
 
     assert.ok(
         noscriptCount <= MAX_NOSCRIPT_COUNT,
         `Found ${noscriptCount} noscript elements, but baseline is ${MAX_NOSCRIPT_COUNT}. Please do not add more noscript elements.`
+    );
+
+    assert.ok(
+        emptyNoscriptCount <= MAX_EMPTY_NOSCRIPT_COUNT,
+        `Found ${emptyNoscriptCount} empty noscript elements, but baseline is ${MAX_EMPTY_NOSCRIPT_COUNT}. Please do not add more empty noscript elements.`
     );
 });
