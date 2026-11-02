@@ -81,3 +81,29 @@ test('No HTML file should have more than one <link rel="canonical"> tag', () => 
         `Found HTML files with more than one <link rel="canonical">: ${offenders.join(', ')}`
     );
 });
+
+test('<link rel="canonical"> should have an absolute https href', () => {
+    const htmlFiles = findHtmlFiles('.');
+    const offenders = [];
+
+    for (const file of htmlFiles) {
+        const content = fs.readFileSync(file, 'utf8');
+
+        const linkRegex = /<link\b[^>]*>/gi;
+        let match;
+        while ((match = linkRegex.exec(content)) !== null) {
+            const tag = match[0];
+            if (/\brel\s*=\s*(["']?)canonical\1/i.test(tag)) {
+                const hrefMatch = /\bhref\s*=\s*(["']?)([^"'>\s]+)\1/i.exec(tag);
+                if (!hrefMatch || !hrefMatch[2].startsWith('https://')) {
+                    offenders.push(`${file} (href: ${hrefMatch ? hrefMatch[2] : 'missing'})`);
+                }
+            }
+        }
+    }
+
+    assert.ok(
+        offenders.length === 0,
+        `Found HTML files where <link rel="canonical"> does not have an absolute https href: ${offenders.join(', ')}`
+    );
+});
