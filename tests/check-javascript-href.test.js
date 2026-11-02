@@ -28,13 +28,31 @@ function findHtmlFiles(dir, fileList = []) {
 test('Count of href attributes starting with javascript: does not grow', () => {
   const filesToCheck = findHtmlFiles('.');
   let totalViolations = 0;
+  const warnings = [];
 
   for (const file of filesToCheck) {
     const content = fs.readFileSync(file, 'utf8');
+
+    // Check specifically for <a> tags with javascript:
+    const aTagRegex = /<a\s([^>]*)>/gi;
+    let aMatch;
+    while ((aMatch = aTagRegex.exec(content)) !== null) {
+      const attributes = aMatch[1];
+      if (/\bhref\s*=\s*(?:['"]?)\s*javascript:/i.test(attributes)) {
+        warnings.push(`File: ${file} | Tag: ${aMatch[0]}`);
+      }
+    }
+
     let match;
     while ((match = javascriptHrefRegex.exec(content)) !== null) {
       totalViolations++;
     }
+  }
+
+  if (warnings.length > 0) {
+    console.warn('--- WARNING: <a> tags with javascript: href found ---');
+    warnings.forEach(w => console.warn(w));
+    console.warn('-----------------------------------------------------');
   }
 
   assert.ok(
