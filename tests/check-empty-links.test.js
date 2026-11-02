@@ -32,47 +32,42 @@ function extractAttributes(attrString) {
     return attrs;
 }
 
-const CURRENT_EMPTY_LINKS_COUNT = 0;
-
-test('No new empty links (a tags with href but no visible text, aria-label, or img alt)', () => {
+test('Report a elements with no text, no aria-label, and no img with alt as a failing list', () => {
     const htmlFiles = findHtmlFiles('.');
-    let totalEmptyLinks = 0;
+    let emptyLinks = [];
 
     for (const file of htmlFiles) {
         const html = fs.readFileSync(file, 'utf8');
-        const regex = /<a\s([^>]*)>([\s\S]*?)<\/a>/gi;
+        const regex = /<a(?:\s([^>]*))?>([\s\S]*?)<\/a>/gi;
         let match;
         while ((match = regex.exec(html)) !== null) {
-            const attrString = match[1];
+            const attrString = match[1] || '';
             const innerHTML = match[2];
             const attrs = extractAttributes(attrString);
 
-            if ('href' in attrs) {
-                let hasText = false;
-                let hasAlt = false;
-                let hasAriaLabel = 'aria-label' in attrs && attrs['aria-label'].trim() !== '';
+            let hasText = false;
+            let hasAlt = false;
+            let hasAriaLabel = 'aria-label' in attrs && attrs['aria-label'].trim() !== '';
 
-                const textContent = innerHTML.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').trim();
-                if (textContent !== '') {
-                    hasText = true;
-                }
+            const textContent = innerHTML.replace(/<[^>]+>/g, ' ').replace(/&nbsp;/gi, ' ').trim();
+            if (textContent !== '') {
+                hasText = true;
+            }
 
-                const imgRegex = /<img\s([^>]+)>/gi;
-                let imgMatch;
-                while ((imgMatch = imgRegex.exec(innerHTML)) !== null) {
-                    const imgAttrs = extractAttributes(imgMatch[1]);
-                    if ('alt' in imgAttrs && imgAttrs.alt.trim() !== '') {
-                        hasAlt = true;
-                    }
+            const imgRegex = /<img\s([^>]+)>/gi;
+            let imgMatch;
+            while ((imgMatch = imgRegex.exec(innerHTML)) !== null) {
+                const imgAttrs = extractAttributes(imgMatch[1]);
+                if ('alt' in imgAttrs && imgAttrs.alt.trim() !== '') {
+                    hasAlt = true;
                 }
+            }
 
-                if (!hasText && !hasAriaLabel && !hasAlt) {
-                    totalEmptyLinks++;
-                    console.log(`Empty link found in ${file}: <a ${attrString.trim()}>...</a>`);
-                }
+            if (!hasText && !hasAriaLabel && !hasAlt) {
+                emptyLinks.push({ file, element: `<a ${attrString.trim()}>...</a>` });
             }
         }
     }
 
-    assert.ok(totalEmptyLinks <= CURRENT_EMPTY_LINKS_COUNT, `Found ${totalEmptyLinks} empty links, which exceeds the allowed count of ${CURRENT_EMPTY_LINKS_COUNT}.`);
+    assert.deepStrictEqual(emptyLinks, []);
 });
