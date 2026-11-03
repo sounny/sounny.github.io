@@ -38,5 +38,9 @@ test('Check <button> tags for missing type attribute', (t) => {
         }
     }
 
+    if (offenders.length > 0) {
+        console.warn(`Warning: Found <button> tags missing a type attribute:\n${offenders.join('\n')}`);
+    }
+
     assert.ok(missingTypeCount <= ALLOWLIST_COUNT, `Found ${missingTypeCount} <button> tags missing a type attribute, which exceeds the allowlist count of ${ALLOWLIST_COUNT}.\nOffenders:\n${offenders.join('\n')}\nPlease add a type attribute to new <button> tags.`);
 });
