@@ -22,6 +22,24 @@ const ALLOWLIST = [
     'google03d463aa06323fde.html'
 ];
 
+test('Check that index.html and privacy.html have a <meta name="viewport"> tag', () => {
+    const requiredFiles = ['index.html', 'privacy.html'];
+    for (const file of requiredFiles) {
+        if (!fs.existsSync(file)) continue;
+        const content = fs.readFileSync(file, 'utf8');
+        const metaRegex = /<meta\b[^>]*>/gi;
+        let hasViewport = false;
+        let match;
+        while ((match = metaRegex.exec(content)) !== null) {
+            const tag = match[0];
+            if (/\bname\s*=\s*(["']?)viewport\1/i.test(tag)) {
+                hasViewport = true;
+            }
+        }
+        assert.ok(hasViewport, `${file} is missing <meta name="viewport"> tag`);
+    }
+});
+
 test('Check that HTML files have a <meta name="viewport"> tag', () => {
     const htmlFiles = findHtmlFiles('.');
     const offenders = [];
