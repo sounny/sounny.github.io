@@ -6,8 +6,13 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://sounny.github.io/</loc>
-  <lastmod>2026-08-30</lastmod>
+  <lastmod>2026-11-12</lastmod>
   <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://sounny.github.io/lunarmap/</loc>
+  <lastmod>2026-11-12</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://sounny.github.io/windmap/</loc>
