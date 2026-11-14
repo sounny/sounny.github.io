@@ -88,12 +88,56 @@ test('Check that <th> elements have a scope attribute', () => {
         const html = fs.readFileSync(file, 'utf8');
         const tags = parseHtml(html);
 
-        for (const tag of tags) {
+        for (let i = 0; i < tags.length; i++) {
+            const tag = tags[i];
+
+            // Original assertion logic
             if (tag.tagName === 'th') {
                  const attrs = extractAttributes(tag.content);
                  if (!('scope' in attrs)) {
                      missingScopeCount++;
                  }
+            }
+
+            // New logic: warning for th missing scope in complex tables
+            if (tag.tagName === 'table') {
+                let depth = 1;
+                let trCount = 0;
+                let firstTrHasTh = false;
+                let subsequentTrHasTh = false;
+                let thsInTable = [];
+
+                for (let j = i + 1; j < tags.length; j++) {
+                    const innerTag = tags[j];
+                    if (innerTag.tagName === 'table') depth++;
+                    else if (innerTag.tagName === '/table') depth--;
+
+                    if (depth === 0) break;
+
+                    if (depth === 1) {
+                        if (innerTag.tagName === 'tr') {
+                            trCount++;
+                        } else if (innerTag.tagName === 'th') {
+                            if (trCount === 1) {
+                                firstTrHasTh = true;
+                            } else if (trCount > 1) {
+                                subsequentTrHasTh = true;
+                            }
+
+                            const attrs = extractAttributes(innerTag.content);
+                            if (!('scope' in attrs)) {
+                                thsInTable.push(innerTag);
+                            }
+                        }
+                    }
+                }
+
+                // If it's a table with both row and column headers and missing scopes
+                if (firstTrHasTh && subsequentTrHasTh && thsInTable.length > 0) {
+                    for (const th of thsInTable) {
+                        console.warn(`Warning: <th> without scope attribute found in a table with both row and column headers in ${file}: ${th.content}`);
+                    }
+                }
             }
         }
     }
